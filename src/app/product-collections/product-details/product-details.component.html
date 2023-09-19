@@ -1,0 +1,109 @@
+<div class="product-details">
+    <div class="flex-custom">
+        <div class="pdct-img">
+            <img class="accordion_img mb-3" [src]="currentImage" alt="">
+            <div class="flex-custom">
+                <!-- <div  *ngIf="productImgList.length"> -->
+                    <div *ngFor="let pic of productImgList">
+                        <img class="w-50 cursor-pointer" [src]="pic.imgUrl" alt="" [class.border]="pic.active" (click)="activeImage(pic)">
+                    </div>
+    
+                <!-- </div> -->
+                <!-- <video controls class="">
+                    <source class="" src="/assets/BB_8ced84c9-1360-45a9-8f89-32c571fd6a5b_preview.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video> -->
+            </div>
+          
+          
+         
+        </div>
+        <div class="product_content">
+            <div class="flex-custom">
+                <label class="header mb-2">{{currentProductDetails?.productName | titlecase}}</label>
+                <mat-icon class="ml-auto cursor-pointer" [cdkCopyToClipboard]="copyUrl()"  matTooltip="Copy the link">share</mat-icon>
+            </div>
+            <div class="mb-2">{{currentProductDetails?.productName | titlecase}}</div>
+         
+            <div class="mb-3">MADE WITH PURE 925 SILVER</div>
+            <div class="flex-custom">
+                <label class="price_amt">{{currentProductDetails?.discountPrice | currency:'INR'}}</label>
+                <div class="flex-grid mrpDetails">
+                    <span>MRP <s>{{currentProductDetails?.actualPrice | currency:'INR'}}</s></span>
+                    <label>Incl. of all taxes</label>
+                </div>
+            </div>
+            <div class="flex-grid">
+                <div class="flex-custom">
+                    <input type="checkbox" id="giftWrap"  class="mr-3 mb-1" autocomplete="off">
+                    <label for="giftWrap">Add Gift Wrap to your Order (Rs. 50)</label>
+                </div>
+            
+                <button class="btn btn-cart mb-12" (click)="addToCart()">ADD TO CART</button>
+                <button class="btn btn-secondary btn-buy mb-12" style="background-color: #7f3395;" (click)="BuyItNow()">BUY IT NOW</button>
+                <button class="btn border mb-12" (click)="addWishlist()"><img class="d-arrow mr-12" src="assets/heart.png" alt="">{{addToWishlist ? 'ADDED TO WISHLIST' :'ADD TO WISHLIST'}}</button>
+            </div>
+            <div class="flex-custom mb-3">
+                <!-- static policy content -->
+            <ng-container *ngFor="let policy of productPolicies">
+                    <ul class="tags">
+                        <li>
+                            <div class="product-policies">
+                                <img class="" [src]="policy.img" alt="">
+                                <p>{{policy?.Name}}</p>
+                            </div>
+                        </li>
+                    </ul>
+            </ng-container>
+            </div>
+            <div class="btm-line">
+                <!-- <mat-expansion-panel (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                        Self aware panel
+                        </mat-panel-title>
+                        <mat-panel-description>
+                        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <p>{{currentProductDetails?.description}}</p>
+                </mat-expansion-panel> -->
+                <div class="filter-id mr-2 drop font-weight-bolder" (click)="subMenuOpen('specialoffer')"  id="specialoffer">SPECIAL OFFERS</div>
+                <!-- <mat-icon>refresh</mat-icon> -->
+                <div class="dropdown-content mb-3">
+                    <div>{{currentProductDetails?.description}}</div>
+                </div>
+            </div>
+            <div class="btm-line">
+                <div class="filter-id mr-2 drop font-weight-bolder" (click)="subMenuOpen('productdescription')"  id="productdescription">PRODUCT DESCRIPTION</div>
+                <div class="dropdown-content mb-3">
+                    <div>{{currentProductDetails?.description}}</div>
+                </div>
+            </div>
+            <div class="btm-line">
+                <div class="filter-id mr-2 drop font-weight-bolder" (click)="subMenuOpen('shippingdetails')"  id="shippingdetails">SHIPPING DETAILS</div>
+                <div class="dropdown-content mb-3">
+                    <div>{{currentProductDetails?.description}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <ng-container *ngIf="currentUserData"> -->
+        <!-- <div class="flex-custom overflow-auto w-100 mb-4 p-2" style="background-color: #f8f8f8;">
+            <label>Recently viewed</label> -->
+            <!-- <div class="accordion ml-auto mr-auto" *ngFor="let row of currentProductDetails?.productImages;let i=index">
+              <div class="flex-grid cursor-pointer" (click)="getSelectedCollection(row)" >
+                 <img class="accordion_img cat_img" [src]="row" alt=""> -->
+                 <!-- <label class="product-name mt-1" style="width: 165px;">{{row?.category | titlecase}}</label> -->
+                 <!-- <div class="product-price"> -->
+                  <!-- <label class="mr-12">{{row?.discountPrice | currency:'INR'}}</label> -->
+                  <!-- <s class="grey-text">{{row?.actualPrice | currency:'INR'}}</s> -->
+                 <!-- </div>
+              </div> -->
+           <!-- </div> -->
+          <!-- </div> -->
+    <!-- </ng-container> -->
+    
+</div>
+

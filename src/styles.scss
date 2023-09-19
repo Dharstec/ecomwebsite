@@ -1,0 +1,214 @@
+/* You can add global styles to this file, and also import other style files */
+// @import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Avenir_Next&display=swap');
+// @import "~@ng-select/ng-select/themes/default.theme.css";
+// @import "~@ng-select/ng-select/themes/material.theme.css";
+/* Importing Bootstrap SCSS file. */
+// @import '~bootstrap/scss/bootstrap';
+// @import '~@fortawesome/fontawesome-free/css/all.css';
+
+body.html {
+    font-family: Avenir_Next;
+    font-style: normal;
+    font-weight: normal;
+  }
+  .flex-custom{
+    display: flex!important;
+  }
+  .d-none{
+    display: none!important;
+  }
+  .d-block{
+    display: block!important;
+  }
+  .cursor-pointer{
+    cursor: pointer!important;
+  }
+  .flex-grid{
+    display: grid!important;
+  }
+.w-100{
+    width: 100% !important;
+}
+.w-50{
+    width: 50% !important;
+}
+.w-12{
+  width: 12% !important;
+}
+.w-16{
+  width: 16% !important;
+}
+.w-auto{
+  width: auto !important;
+}
+.mb-12{
+    margin-bottom: 12px !important;
+}
+.ml-12{
+    margin-left: 12px !important;
+}
+.mr-12{
+    margin-right: 12px !important;
+}
+.mr-540{
+    margin-left: 540px !important;
+
+}
+.mt-12{
+    margin-top: 12px !important;
+}
+.bg-clr{
+  background-color: #f0f4f8;
+}
+.custom-fixed-table{
+    padding: 24px;
+    .col-header{
+        background: #EEEDE7;
+    }
+ 
+}
+
+.disabled {
+  background: #e9ecef !important;
+  border: none !important;
+  pointer-events: none !important;
+}
+.blue-text{
+    color: #0B70D5 !important; 
+    cursor: pointer;
+  }
+  .grey-text{
+    color: #626F7B !important; 
+  }
+  .d-arrow{
+    width: 16px;
+    height: 16px;
+    // margin-top: 4px;
+    margin-left: 4px;
+  }
+  .nav-icon{
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+    cursor: pointer;
+  }
+  // .table td, .table th {
+  //   padding: 0.75rem;
+  //   vertical-align: top;
+  //   border-top: none;
+  // }
+
+ //
+ .multiselect-dropdown{
+  font-family: 'Roboto' !important; 
+   .dropdown-btn .dropdown-multiselect__caret{
+      /* line-height: 16px; */
+      display: block;
+      position: absolute;
+      box-sizing: border-box;
+      /* width: 40px; */
+      height: 38px;
+      right: 1px;
+      top: 0;
+      padding: 4px 8px;
+      margin: 0;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      transition: transform .2s;
+  }
+  .dropdown-btn{
+    // padding: 0px 15px !important;
+  }
+  .selected-item-container{
+    // display: none;
+    font-size: 12px;
+    margin-top: 0px;
+  }
+ } 
+ .dropdown-list{
+  width: 215px !important;
+ }
+ .txt-centre{
+  text-align: center !important;
+ }
+ .btm-line{
+  border-bottom: 1px solid #e3e3e3 !important;
+ }
+
+ //ngx-slider
+ .ngx-slider .ngx-slider-bar {
+  background: #55637d ;
+  height: 6px;
+}
+.ngx-slider .ngx-slider-selection {
+  background: #55637d ;
+}
+
+.ngx-slider .ngx-slider-pointer {
+  width: 12px;
+  height: 16px;
+  top: auto; /* to remove the default positioning */
+  bottom: 0;
+  background-color: #55637d ;
+}
+
+.ngx-slider .ngx-slider-pointer:after {
+  display: none;
+}
+
+.ngx-slider .ngx-slider-bubble {
+  bottom: 15px;
+}
+
+.ngx-slider .ngx-slider-limit {
+  font-weight: bold;
+  color: orange;
+}
+
+.ngx-slider .ngx-slider-tick {
+  width: 1px;
+  height: 16px;
+  margin-left: 5px;
+  border-radius: 0;
+  background: black;
+  top: -1px;
+}
+
+.ngx-slider .ngx-slider-tick.ngx-slider-selected {
+  background: rgb(0, 120, 155);
+}
+.f-right{
+  float: right;
+}
+
+p.text-danger{
+  margin: 0;
+  font-size: 12px;
+  line-height: 18px !important;
+  margin-top: 2px;
+  color: #DF404F !important;
+  margin-bottom: 12px;
+}
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// custom scroll
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}

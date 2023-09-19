@@ -1,0 +1,108 @@
+.main-content{
+    display: grid;
+    margin-top: 140px;
+    background: #ffffff;
+    padding: 0px 300px;
+    text-align: center;
+    min-height: 196px;
+    color: #3d4246;
+    .stepper{
+        font-size: 12px;
+        .stepperImg{
+            // transform: rotate(180deg);
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+    }
+    .customer_details{
+        text-align: initial;
+        margin-top: 1rem;
+    }
+    .shipping_details{
+        padding: 12px;
+        border:1px solid #f0f4f8;
+        font-size: 12px;
+        // margin-left: 24px;
+        border-radius: 2px;
+    }
+
+}
+
+.font-color{
+    color: #3d4246;
+}
+.summary{
+    padding: 12px;
+    background-color: #f0f4f8;
+    font-size: 12px;
+    margin-left: 24px;
+
+}
+.flex-align{
+    align-items: center;
+    display: flex;
+}
+.tags{  
+    list-style: none;
+    display: table;
+    width: 100%;
+    margin: 8px 0;
+    padding: 5px;
+    table-layout: fixed;
+    li{
+        padding: 5px 1.2px;
+        color: #949494;
+        text-align: center;
+        font-style: normal;
+        cursor: pointer;
+        display: table-cell;
+    }
+    .product-policies{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 55px;
+            margin-bottom: 10px;
+            vertical-align: sub;
+        }
+    }
+}
+.coupon-chips{
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 2px;
+    width: 30%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    min-width: 30%;
+    margin-right: 7px;
+    border-radius: 10px;
+    &.active_code{
+        border-color: #FF8EA7 !important;
+        color: #FF8EA7;
+    }
+    &:hover{
+        border-color: #FF8EA7 !important;
+        color: #FF8EA7;
+    }
+}
+
+.globo-selected{
+    padding: 10px;
+    // border: 1px solid #e8e8e8;
+    width: fit-content;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    background: #e8e8e8;
+    margin-right: 4px;
+}
+

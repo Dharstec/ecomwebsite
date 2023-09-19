@@ -1,0 +1,69 @@
+<div class="main-content">
+    <ng-container *ngIf="orderList.length">
+        <div>
+            <h5 class="mb-4">Your Order</h5>
+            <div class="flex-custom">
+                    <div>
+                        <table class="table">
+                            <tbody>
+                                <ng-container *ngFor="let row of orderList;index as i">
+                                    <tr class="cursor-pointer border-bottom" *ngIf="row.orders.length && row.orders[0].productId">
+                                        <td class="w-75 text-left flex-custom" style="align-items: center;"><img class="" style="width:30%" [src]="row.orders[0].productId.productImages[0]" alt="">
+                                            <div class="ml-4">
+                                               <label class="font-weight-bold flex-custom">{{row?.orders[0].productId.productName}}</label>
+                                               <label> Order Id: {{row?._id}}</label>
+                                               <label> Order Date: {{row.createdAt}}</label>
+                                               <label> Shipping To: {{row.customerAddress.doorNoAndStreet}}, {{row.customerAddress.city}}, {{row.customerAddress.state}}, {{row.customerAddress.pincode}} </label>
+                                            </div>
+                                        </td>
+                        
+                                        <td class="w-25 text-lg-right font-color">
+                                            <!-- <div class="text-priceOriginal mb-1">{{row?.data?.discountPrice | currency:'INR'}}</div>
+                                            <div class="mb-1"><s>{{row?.data?.actualPrice | currency:'INR'}}</s></div> -->
+                                           <!-- <button class="btn btn-secondary mr-3" (click)="removeWishlist(row)">Remove Wishlist</button> -->
+                                           <button class="btn btn-secondary mb-12">{{row?.orderStatus=='pending' ? 'Yet to dispatch' : row.orderStatus}}</button>
+                                           <label> Last Update: {{row.updatedAt}}</label>
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                            </tbody>
+                        </table>
+                    </div>
+                  
+<!-- 
+                   <div class="summary">
+                    <label class="text-left">Order Summary</label>
+                    <table class="table mb-3">
+                        <tbody>
+                            <tr class="">
+                                <td class="text-left">Subtotal</td>
+                                <td class="text-right">{{totalAmt | currency:'INR'}}</td>
+                            </tr>
+                            <tr class="border-bottom">
+                                <td class="text-left">Shipping:</td>
+                                <td class="text-right">Free</td>
+                            </tr>
+                            <tr class="">
+                                <td class="text-left">Total</td>
+                                <td class="text-right">{{totalAmt | currency:'INR'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <label class="p-2">P.S: Use discount code on the checkout page</label>
+                    <div class="">
+                        <button class="btn btn-dark" (click)="routeToNext()">Checkout Securely</button>
+                    </div>
+    
+                   </div> -->
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="!orderList.length">
+        <div>
+            <h3 class="mb-4 font-weight-bolder">Your order</h3>
+            <div class="mb-2">Your order is empty</div>
+            <button class="btn btn-secondary mb-12" routerLink="/jewel/product-collections">CONTINUE SHOPPING</button>
+        </div>
+    </ng-container>
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-atom" [fullScreen]="true"></ngx-spinner>

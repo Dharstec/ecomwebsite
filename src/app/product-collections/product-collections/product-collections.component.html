@@ -1,0 +1,122 @@
+<div class="main-content">
+    <div class="collection_images">
+      <!-- <img class="img-container" src="assets/pendant.webp" alt=""> -->
+      <img class="img-container" src="assets/product_up.png" alt="">
+    </div>
+  <div class="filter-row mb-12" #stickyMenu [class.sticky] = "sticky">
+    <div  [formGroup]="filterForm" class="w-100 btm-line">
+      <div class=" flex-custom">
+          <!-- Category filter list -->
+          <div>
+            <div class="filter-id mr-12 mb-12 drop" (click)="subMenuOpen('category')"  id="category">Category</div>
+            <div class="dropdown-content" [class.sticky-dropdown] = "sticky">
+              <!-- <mat-select multiple formControlName="category" (selectionChange)="checkdynamicData()">
+                <mat-option *ngFor="let row of categoryDropdownList" [value]="row" >{{row.field_name}}</mat-option>
+              </mat-select> -->
+              <ng-container *ngFor="let row of categoryDropdownList; let i= index">
+                <div class="mb-1" *ngIf="row.count!=0">
+                <input type="checkbox" [(ngModel)]="selectedCategory" id="category{{i}}" (change)="getFilterData($event,row,'category')"  class="" autocomplete="off" [checked]="row.checked">
+                <label class="ml-3" for="category{{i}}">{{row?.field_name}}</label>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+                <!-- stone filter list -->
+          <div>
+            <div class="filter-id mr-12 mb-12 drop" (click)="subMenuOpen('stone')" id="stone">Brand</div>
+            <div class="dropdown-content" [class.sticky-dropdown] = "sticky">
+              <ng-container *ngFor="let row of stoneDropdownList; let i= index">
+                <div class="mb-1" *ngIf="row.count!=0">
+                  <input type="checkbox" [(ngModel)]="selectedStone" id="stone{{i}}" (change)="getFilterData($event,row,'stone')" class="" autocomplete="off" [checked]="row.checked">
+                  <label class="ml-3" for="stone{{i}}">{{row?.field_name}}</label>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+            <!-- Price filter list -->
+          <div>
+            <div class="filter-id mr-12 mb-12 drop" (click)="subMenuOpen('price')"  id="price">Price</div>
+            <div class="dropdown-content" [class.sticky-dropdown] = "sticky">
+              <div class="flex-custom mb-3">
+                <input type="text" formControlName="minPrice" [(ngModel)]="minValue"  class="priceRange" autocomplete="off" (keyUp)="changePrice($event,'min')"> -
+                <input type="text" formControlName="maxPrice" [(ngModel)]="maxValue" class="priceRange" autocomplete="off" (keyUp)="changePrice($event,'max')">
+              </div>
+              <!-- <ngx-slider [options]="slideOptions" (userChange)="filterByPrice($event,'price')" [(value)]="minValue" [(highValue)]="maxValue"></ngx-slider> -->
+            </div>
+          </div>
+        <!-- Colour filter list -->
+          <div class="">
+            <div class="filter-id mr-12 mb-12 drop" (click)="subMenuOpen('colour')" id="colour">Formulation</div>
+            <div class="dropdown-content" [class.sticky-dropdown] = "sticky">
+              <ng-container *ngFor="let row of colourDropdownList; let i= index">
+                <div class="mb-1" *ngIf="row.count!=0">
+                  <input type="checkbox" [(ngModel)]="selectedColour" id="colour{{i}}" (change)="getFilterData($event,row,'colour')" class="" autocomplete="off" [checked]="row.checked">
+                  <label class="ml-3" for="colour{{i}}">{{row?.field_name}}</label>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <!-- Colour filter list -->
+          <div class="">
+            <div class="filter-id mr-12 mb-12 drop" (click)="subMenuOpen('style')" id="style">Style
+            </div>
+            <div class="dropdown-content" [class.sticky-dropdown] = "sticky">
+              <ng-container *ngFor="let row of styleDropdownList; let i= index">
+                <div class="mb-1" *ngIf="row.count!=0">
+                  <input type="checkbox" [(ngModel)]="selectedStyle" [value]="row" id="style{{i}}" (change)="getFilterData($event,row,'style')"  class="" autocomplete="off" [checked]="row.checked">
+                  <label class="ml-3" for="style{{i}}">{{row?.field_name}}</label>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="">
+            <div class="filter-id mr-12 mb-12 drop" (click)="subMenuOpen('for')" id="for">For</div>
+            <div class="dropdown-content" [class.sticky-dropdown] = "sticky">
+              <ng-container *ngFor="let row of forDropdownList; let i= index">
+                <div class="mb-1">
+                  <input type="checkbox" [(ngModel)]="selectedFor" id="for{{i}}"  (change)="getFilterData($event,row,'for')" class="" autocomplete="off" [checked]="row.checked">
+                  <label class="ml-3" for="for{{i}}">{{row?.field_name}}</label>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="ml-auto">
+            <div class="filter-id mb-12 drop" (click)="subMenuOpen('sortBy')" id="sortBy">SORT BY: {{sortByFilter}}</div>
+            <div class="dropdown-content w-auto txt-centre" [class.sticky-dropdown] = "sticky">
+                <ng-container *ngFor="let row of sortByDropdownList; let i= index">
+                  <div class="sort_list mb-1"  >
+                  <label class="ml-3 mr-3" (click)="getSortByFilter(row,'sortBy')">{{row?.field_name}}</label>
+                  </div>
+                </ng-container>
+            </div>
+          </div>
+      </div>
+      <div class="flex-custom mb-12" *ngIf="selectedFilterList && selectedFilterList.length">
+        <button class="btn btn-secondary mr-12" (click)="clearAllFilter()" *ngIf="selectedFilterList.length!=1" >
+          Clear All
+        </button>
+        <div class="globo-selected" *ngFor="let row of selectedFilterList" (click)="getFilterData('',row,'remove')">
+            {{row.item_id}}<img class="d-arrow mt-1" src="/assets/close.svg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <label class="prdt-count"><b>{{productList ? productList.length : 0}}</b> Products</label>
+    <div class="content-details">
+      <div class="accordion mb-4  ml-auto mr-auto" *ngFor="let row of productList;let i=index">
+          <div class="flex-grid cursor-pointer" (click)="routeToDetails(row)">
+             <img class="accordion_img" [src]="row?.productImages[0]" alt="">
+             <label class="product-name mt-1">{{row?.productName | titlecase}}</label>
+             <div class="product-price">
+              <label class="mr-12">{{row?.discountPrice | currency:'INR'}}</label>
+              <s class="grey-text">{{row?.actualPrice | currency:'INR'}}</s>
+             </div>
+          </div>
+       </div>
+       <div *ngIf="!productList.length">
+              <span>No product found.</span>
+       </div>
+    </div>
+  
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-atom" [fullScreen]="true"></ngx-spinner>

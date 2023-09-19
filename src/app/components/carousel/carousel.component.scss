@@ -1,0 +1,19 @@
+.carousel{
+    // position: relative;
+    margin-top: 130px;
+    position:inherit;
+}
+.carousel-inner{
+    position: inherit;
+}
+.carousel-item{
+    position: inherit;
+    transition: 0.3s;
+}
+.carousel-indicators{
+    bottom: 25%;
+}
+.carousel-control-prev, .carousel-control-next {
+    // bottom: 30px;
+    width: 2%;
+}

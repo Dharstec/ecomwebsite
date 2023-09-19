@@ -1,0 +1,67 @@
+
+<div class="register-block" >
+    <form [formGroup]="registerForm">
+        <ng-container *ngIf="!showVerifyOtp">
+            <h3>Create Account</h3>
+            <div class="form-name mb-2">
+                <label>First Name</label>
+                <input formControlName="firstName" placeholder="" autocomplete="off" class="form-control" type="text" id="firstName">  
+            </div>
+            <div class="form-name mb-4">
+                <label>Last Name</label>
+                <input formControlName="lastName" placeholder="" autocomplete="off" class="form-control" type="text" id="lastName">  
+            </div>
+            <div class="flex-custom no-wrap mb-2">
+                <label class="mr-5">Gender</label>
+                <div class="checkbox-cs">
+                    <input type="radio" name="gender"  class="form-check-inline" id='male' (change)="setGender('Male')" checked>
+                    <label class="value" for="male">Male</label>
+                </div>
+                <div class="checkbox-cs ml-2">
+                    <input type="radio" name="gender" class="form-check-inline" id='female' (change)="setGender('Female')">
+                    <label class="value" for="female">Female</label>
+                </div>
+            </div>
+            <div class="form-name mb-2">
+                <label>DOB</label>
+                <input formControlName="dob" max="{{currentDate}}" placeholder="" (change)="getDOB($event)" autocomplete="off" class="form-control" type="date" id="dob">  
+            </div>
+            <div class="form-name mb-2">
+                <label>Phone number</label>
+                <input formControlName="phoneNo" placeholder="" autocomplete="off" class="form-control" type="number" id="phoneNo">  
+                <p class="text-danger" *ngIf="registerForm.phoneNo?.errors?.maxLength">Value must be a valid number.</p>
+            </div>
+            <div class="form-name mb-2">
+                <label>Email ID</label>
+                <input formControlName="emailId" placeholder="" autocomplete="off" class="form-control" type="email" id="email-id">  
+            </div>
+            <div class="alert alert-danger" role="alert"  *ngIf="showErrorMsg">
+                Email Id is already exist!
+             </div>
+            <div class="form-name mb-2">
+                <label>Password</label>
+                <input formControlName="passcode" placeholder="" autocomplete="off" class="form-control" type="password" id="password">  
+                <p>Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters.</p>
+            </div>
+           
+            <div class="mb-2">
+                <button class="btn btn-secondary mr-2" *ngIf="!showResendOtp" [class.disabled]="registerForm.invalid || showErrorMsg" (click)="newRegister()">Create</button>
+                <button class="btn btn-secondary" *ngIf="showResendOtp" (click)="resendOtp()">Resend OTP</button>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="showVerifyOtp">
+                <h3>OTP Verification</h3>
+                <div class="form-name mb-2">
+                    <label>OTP Number</label>
+                    <input formControlName="otp" placeholder="" autocomplete="off" class="form-control" type="text" id="otp">  
+                </div>
+                <div class="alert alert-danger" role="alert"  *ngIf="showErrorMsg">
+                    Invalid OTP!
+                 </div>
+                <div class="mb-2">
+                    <button class="btn btn-secondary" [class.disabled]="!registerForm.get('otp').value" (click)="otpVerification()">Verify</button>
+                </div>
+        </ng-container>
+    </form>
+</div>
+

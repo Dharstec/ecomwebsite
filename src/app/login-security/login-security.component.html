@@ -1,0 +1,49 @@
+<div class="main-content" >
+    <div class="register-block" *ngIf="showView">
+        <form [formGroup]="detailsForm">
+                <h1>Login & Security</h1>
+                <div class="form-name mb-2">
+                    <label>First Name</label>
+                    <input formControlName="firstName" [class.disabled]="!editForm" placeholder="" autocomplete="off" class="form-control" type="text" id="firstName">  
+                </div>
+                <div class="form-name mb-4">
+                    <label>Last Name</label>
+                    <input formControlName="lastName" [class.disabled]="!editForm" placeholder="" autocomplete="off" class="form-control" type="text" id="lastName">  
+                </div>
+                <div class="flex-custom no-wrap mb-2">
+                    <label class="mr-5">Gender</label>
+                    <div class="checkbox-cs">
+                        <input type="radio" name="gender" disabled="!editForm"  class="form-check-inline" id='male' (change)="setGender('Male')" checked>
+                        <label class="value" for="male">Male</label>
+                    </div>
+                    <div class="checkbox-cs ml-2">
+                        <input type="radio" disabled="!editForm" name="gender" class="form-check-inline" id='female' (change)="setGender('Female')">
+                        <label class="value" for="female">Female</label>
+                    </div>
+                </div>
+                <div class="form-name mb-2">
+                    <label>DOB</label>
+                    <input formControlName="dob" [class.disabled]="!editForm" max="{{currentDate}}" placeholder="" (change)="getDOB($event)" autocomplete="off" class="form-control" type="date" id="dob">  
+                </div>
+                <div class="form-name mb-2">
+                    <label>Phone number</label>
+                    <input formControlName="phoneNo" [class.disabled]="!editForm" placeholder="" autocomplete="off" class="form-control" type="text" id="phoneNo">  
+                    <p class="text-danger" *ngIf="detailsForm.invalid">Value must be a valid number.</p>
+                </div>
+                <div class="form-name mb-2">
+                    <label>Email ID</label>
+                    <input formControlName="emailId" placeholder="" autocomplete="off" class="form-control disabled" type="text" id="email_id">  
+                </div>
+                <!-- <div class="form-name mb-2">
+                    <label>Password</label>
+                    <input formControlName="passcode" [class.disabled]="!editForm" placeholder="" autocomplete="off" class="form-control" type="password" id="password">  
+                </div> -->
+                <div class="mb-2">
+                    <button (click)="editForm=!editForm" class="btn btn-secondary mr-2" >{{!editForm?'Edit':'Cancel'}}</button>
+                    <button [class.disabled]="!editForm || detailsForm.invalid" (click)="updateCustomer()" class="btn btn-secondary mr-2" >Save</button>
+                </div>
+        </form>
+
+    </div>
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-atom" [fullScreen]="true"></ngx-spinner>

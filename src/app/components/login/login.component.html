@@ -1,0 +1,61 @@
+<div class="login-block" *ngIf="!showForgot">
+    <h3>Login</h3>
+    <div class="form-name mb-2">
+        <label>Email ID</label>
+        <input [(ngModel)]="emailId" placeholder="" (keyup)="errorMessage=false" autocomplete="off" class="form-control" type="email" id="email-id">  
+    </div>
+    <div class="form-name mb-2">
+        <label>Password</label>
+        <input [(ngModel)]="passcode" placeholder="" (keyup)="errorMessage=false"  autocomplete="off" class="form-control" type="password" id="password">  
+    </div>
+    <div class="alert alert-danger" role="alert"  *ngIf="errorMessage">
+        {{loginData}}
+    </div>
+    <!-- <label class="border-danger">{{loginData}}</label> -->
+    <label class="cursor-pointer mb-2" (click)="showForgot=true">
+        Forgot your password?
+    </label>
+    <div class="mb-2">
+        <button class="btn btn-secondary" (click)="signIn()">Sign In</button>
+    </div>
+    <div class="account_create" routerLink="/jewel/register">
+                Create account
+    </div>
+</div>
+
+<div class="login-block" *ngIf="showForgot">
+    <ng-container *ngIf="!showVerifyOtp && !showChangePassword">
+        <h5>RESET YOUR PASSWORD</h5>
+        <label class="cursor-pointer mb-2">
+            We will send you an email to reset your password.
+        </label>
+        <div class="form-name mb-2">
+            <label>Email ID</label>
+            <input [(ngModel)]="emailId" placeholder="" autocomplete="off" class="form-control" type="email" id="email-id">  
+        </div>
+        <div class="mb-2">
+            <button class="btn btn-secondary mr-12" (click)="signIn()">Submit</button>
+            <button class="btn btn-light" (click)="showForgot=false">Cancel</button>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="showVerifyOtp && !showChangePassword">
+        <h5>OTP Verification</h5>
+        <div class="form-name mb-2">
+            <label>OTP Number</label>
+            <input [(ngModel)]="otp" placeholder="" autocomplete="off" class="form-control" type="number" id="otp">  
+        </div>
+        <div class="mb-2">
+            <button class="btn btn-secondary" [class.disabled]="!otp" (click)="otpVerification()">Verify</button>
+        </div>
+   </ng-container>
+   <ng-container *ngIf="showChangePassword && !showVerifyOtp">
+    <h3>Type your New Password</h3>
+    <div class="form-name mb-2">
+        <label>Enter your new password</label>
+        <input [(ngModel)]="newPasscode" placeholder="" autocomplete="off" class="form-control" type="password" id="newPasscode">  
+    </div>
+    <div class="mb-2">
+        <button class="btn btn-secondary" [class.disabled]="!newPasscode" (click)="updatePassword()">Save</button>
+    </div>
+   </ng-container>
+</div>

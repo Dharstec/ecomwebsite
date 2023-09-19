@@ -1,0 +1,28 @@
+.main-content{
+    margin-top: 125px;
+    background: #ffffff;
+    // display: grid;
+    // margin-top: 140px;
+    padding: 0px 300px;
+    text-align: center;
+    color: #3d4246;
+    // position: relative;
+    // z-index: -1;
+.row_item{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .item_border{
+        border-radius: 12px;
+    border: 1px solid black;
+    padding: 16px;
+    margin: 12px;
+    min-width: 30%;
+    }
+}
+
+}
+
+.flex-custom{
+    text-align: initial;
+}
