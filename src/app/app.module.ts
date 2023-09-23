@@ -4,11 +4,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule, TitleCasePipe } from '@angular/common';
 // import { NgSelectModule } from '@ng-select/ng-select';
-import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-import { AngularMaterialModule}  from './angular-material/angular-material/angular-material.module'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularMaterialModule } from './angular-material/angular-material/angular-material.module'
 //
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
 
@@ -32,9 +32,9 @@ import { AddWishlistComponent } from './add-wishlist/add-wishlist.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { YourAddressPageComponent } from './your-address-page/your-address-page.component';
 import { RemoveAddressPopupComponent } from './your-address-page/remove-address-popup/remove-address-popup.component';
-import {ClipboardModule} from '@angular/cdk/clipboard';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { LogoutPopupComponent } from './components/logout-popup/logout-popup.component';
-
+import { MatCarouselModule } from '@ngbmodule/material-carousel';
 
 @NgModule({
   declarations: [
@@ -72,8 +72,8 @@ import { LogoutPopupComponent } from './components/logout-popup/logout-popup.com
     AngularMaterialModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    NgxSpinnerModule
- 
+    NgxSpinnerModule,
+
   ],
   providers: [
     TitleCasePipe,
