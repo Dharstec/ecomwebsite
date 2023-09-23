@@ -1,47 +1,39 @@
 <div class="main-content">
-  <!-- <ngb-carousel>
-    <ng-template ngbSlide>
-      <div class="collection_images">
-        <img class="img-container" src="assets/product_up.png" alt="">
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="carousel-images" >
+        <img style="height: 300px;" [src]="images[0]">
       </div>
-    </ng-template>
-    <ng-template ngbSlide>
-      <div class="collection_images">
-        <img class="img-container" src="assets/product_up.png" alt="">
+      <div class="carousel-images" >
+        <img style="height: 300px;" [src]="images[1]">
       </div>
-    </ng-template>
-    <ng-template ngbSlide>
-      <div class="collection_images">
-        <img class="img-container" src="assets/product_up.png" alt="">
+      <div class="carousel-images" >
+        <img style="height: 300px;" [src]="images[2]">
       </div>
-    </ng-template>
-  </ngb-carousel> -->
-   
+      <div class="carousel-images" >
+        <img style="height: 300px;" [src]="images[3]">
+      </div>
+    </div>
+  </div>
   <div class="filter-row mb-12" #stickyMenu [class.sticky] = "sticky">
     <div  [formGroup]="filterForm" class="w-100 btm-line">
       <div class=" flex-custom">
-          <!-- Category filter list -->
-          <div>
             <div class="filter-id mr-12 mb-12 drop" (click)="subMenuOpen('category')"  id="category">Category</div>
             <div class="dropdown-content" [class.sticky-dropdown] = "sticky">
-              <!-- <mat-select multiple formControlName="category" (selectionChange)="checkdynamicData()">
-                <mat-option *ngFor="let row of categoryDropdownList" [value]="row" >{{row.field_name}}</mat-option>
-              </mat-select> -->
               <ng-container *ngFor="let row of categoryDropdownList; let i= index">
                 <div class="mb-1" *ngIf="row.count!=0">
-                <input type="checkbox" [(ngModel)]="selectedCategory" id="category{{i}}" (change)="getFilterData($event,row,'category')"  class="" autocomplete="off" [checked]="row.checked">
+                <input type="checkbox" [(ngModel)]="selectedCategory" [ngModelOptions]="{standalone: true}" id="category{{i}}" (change)="getFilterData($event,row,'category')"  class="" autocomplete="off" [checked]="row.checked">
                 <label class="ml-3" for="category{{i}}">{{row?.field_name}}</label>
                 </div>
               </ng-container>
             </div>
-          </div>
                 <!-- stone filter list -->
           <div>
             <div class="filter-id mr-12 mb-12 drop" (click)="subMenuOpen('stone')" id="stone">Brand</div>
             <div class="dropdown-content" [class.sticky-dropdown] = "sticky">
               <ng-container *ngFor="let row of stoneDropdownList; let i= index">
                 <div class="mb-1" *ngIf="row.count!=0">
-                  <input type="checkbox" [(ngModel)]="selectedStone" id="stone{{i}}" (change)="getFilterData($event,row,'stone')" class="" autocomplete="off" [checked]="row.checked">
+                  <input type="checkbox" [(ngModel)]="selectedStone" [ngModelOptions]="{standalone: true}" id="stone{{i}}" (change)="getFilterData($event,row,'stone')" class="" autocomplete="off" [checked]="row.checked">
                   <label class="ml-3" for="stone{{i}}">{{row?.field_name}}</label>
                 </div>
               </ng-container>
@@ -52,7 +44,7 @@
             <div class="filter-id mr-12 mb-12 drop" (click)="subMenuOpen('price')"  id="price">Price</div>
             <div class="dropdown-content" [class.sticky-dropdown] = "sticky">
               <div class="flex-custom mb-3">
-                <input type="text" formControlName="minPrice" [(ngModel)]="minValue"  class="priceRange" autocomplete="off" (keyUp)="changePrice($event,'min')"> -
+                <input type="text" matInput  formControlName="minPrice" [(ngModel)]="minValue"  class="priceRange" autocomplete="off" (keyUp)="changePrice($event,'min')"> -
                 <input type="text" formControlName="maxPrice" [(ngModel)]="maxValue" class="priceRange" autocomplete="off" (keyUp)="changePrice($event,'max')">
               </div>
               <!-- <ngx-slider [options]="slideOptions" (userChange)="filterByPrice($event,'price')" [(value)]="minValue" [(highValue)]="maxValue"></ngx-slider> -->
@@ -127,6 +119,24 @@
              </div>
           </div>
        </div>
+       <!-- <div class="product-card" *ngFor="let row of productList;let i=index">
+        <div class="badge">Hot</div>
+        <div class="product-tumb">
+          <img [src]="row?.productImages[0]" alt="">
+        </div>
+        <div class="product-details">
+          <span class="product-catagory">Women,bag</span>
+          <h4><a href="">Women leather bag</a></h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
+          <div class="product-bottom-details">
+            <div class="product-price"><small>$96.00</small>$230.99</div>
+            <div class="product-links">
+              <a href=""><i class="fa fa-heart"></i></a>
+              <a href=""><i class="fa fa-shopping-cart"></i></a>
+            </div>
+          </div>
+        </div>
+      </div> -->
        <div *ngIf="!productList.length">
               <span>No product found.</span>
        </div>

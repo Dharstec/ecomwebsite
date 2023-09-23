@@ -19,7 +19,7 @@
             <div class="foot-header col-6">
                 <label class="mb-12">Newsletter</label>
                 <div class="flex-custom">
-                    <input [(ngModel)]="emailId" placeholder="Email Address" autocomplete="off" class="form-control" type="text" id="email-id">  
+                    <input [(ngModel)]="emailId" [ngModelOptions]="{standalone: true}" placeholder="Email Address" autocomplete="off" class="form-control" type="text" id="email-id">  
                     <button class="btn btn-secondary">Subscribe</button>
                 </div>
             </div>
