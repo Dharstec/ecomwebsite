@@ -1,5 +1,5 @@
 .main-content {
-    margin-top: 125px;
+    margin-top: 120px;
     background: #ffffff;
 
     // background: rgb(227, 228, 219);
@@ -10,7 +10,7 @@
     }
 
     .img-container {
-        height: 420px;
+        height: 320px;
         width: 100%;
 
         .caption {
@@ -78,19 +78,14 @@
 .filter-row {
     padding: 24px 24px 0px 24px;
     background-color: #ffffff;
-
     //  display: flex;
     .filter-id {
         border: 1px solid #e3e3e3;
-        border-radius: 2px;
+        border-radius: 5px;
         padding: 8px;
         cursor: pointer;
         height: fit-content;
-
-        //    min-width: 12%;
         &.drop {
-
-            // position: relative;   
             &::after {
                 content: '';
                 display: inline-flex;

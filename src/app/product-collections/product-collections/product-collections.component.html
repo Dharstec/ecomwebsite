@@ -106,39 +106,24 @@
   </div>
   <label class="prdt-count"><b>{{productList ? productList.length : 0}}</b> Products</label>
   <div class="content-details">
-    <div class="accordion mb-4  ml-auto mr-auto" *ngFor="let row of productList;let i=index">
-      <div class="flex-grid cursor-pointer" (click)="routeToDetails(row)">
-        <div class="badge">{{row.discountedPercentage}} %</div>
-        <img class="accordion_img" [src]="row?.productImages[0]" alt="">
-        <label class="product-name mt-1">{{row?.productName | titlecase}}</label>
-        <div class="product-price">
-          <label class="mr-12">{{row?.discountPrice | currency:'INR'}}</label>
-          <s class="grey-text">{{row?.actualPrice | currency:'INR'}}</s>
-        </div>
-      </div>
-    </div>
-    <!-- <div class="product-card" *ngFor="let row of productList;let i=index">
-        <div class="badge">Hot</div>
-        <div class="product-tumb">
-          <img [src]="row?.productImages[0]" alt="">
-        </div>
-        <div class="product-details">
-          <span class="product-catagory">Women,bag</span>
-          <h4><a href="">Women leather bag</a></h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-          <div class="product-bottom-details">
-            <div class="product-price"><small>$96.00</small>$230.99</div>
-            <div class="product-links">
-              <a href=""><i class="fa fa-heart"></i></a>
-              <a href=""><i class="fa fa-shopping-cart"></i></a>
-            </div>
+    <ng-container *ngIf="productList.length !== 0">
+      <div class="accordion mb-4  ml-auto mr-auto" *ngFor="let row of productList;let i=index">
+        <div class="flex-grid cursor-pointer" (click)="routeToDetails(row)">
+          <div class="badge">{{row.discountedPercentage}} %</div>
+          <img class="accordion_img" [src]="row?.productImages[0]" alt="">
+          <label class="product-name mt-1">{{row?.productName | titlecase}}</label>
+          <div class="product-price">
+            <label class="mr-12">{{row?.discountPrice | currency:'INR'}}</label>
+            <s class="grey-text">{{row?.actualPrice | currency:'INR'}}</s>
           </div>
         </div>
-      </div> -->
-    <div *ngIf="!productList.length" style="display: flex;justify-content: center;width: 100%;">
-      <img width="500" height="500" src="/assets/noProduct.png" alt="">
-      <!-- <span>No product found.</span> -->
-    </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="productList.length === 0">
+      <div  style="display: flex;justify-content: center;width: 100%;">
+        <img width="500" height="500" src="/assets/noProduct.png" alt="">
+      </div>
+    </ng-container>
   </div>
 
 </div>
