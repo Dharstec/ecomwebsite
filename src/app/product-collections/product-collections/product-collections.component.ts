@@ -25,7 +25,12 @@ export class ProductCollectionsComponent implements OnInit {
   forDropdownList: any;
   sortByDropdownList: any;
   // dropdownSettings:IDropdownSettings={};
-
+  images: string[] = [
+    'assets/1.png',
+    'assets/2.png',
+    'assets/3.png',
+    'assets/product_up.png'
+  ];
   minValue: number = 0;
   maxValue: number = 10000;
   slideOptions: Options = {

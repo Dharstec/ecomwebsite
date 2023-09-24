@@ -23,7 +23,7 @@
             <div class="dropdown-content" [class.sticky-dropdown] = "sticky">
               <ng-container *ngFor="let row of stoneDropdownList; let i= index">
                 <div class="mb-1" *ngIf="row.count!=0">
-                  <input type="checkbox"  [(ngModel)]="selectedStone"  id="stone{{i}}" (change)="getFilterData($event,row,'stone')" class="" autocomplete="off" [checked]="row.checked">
+                  <input type="checkbox" [(ngModel)]="selectedStone" [ngModelOptions]="{standalone: true}" id="stone{{i}}" (change)="getFilterData($event,row,'stone')" class="" autocomplete="off" [checked]="row.checked">
                   <label class="ml-3" for="stone{{i}}">{{row?.field_name}}</label>
                 </div>
               </ng-container>
