@@ -1,19 +1,58 @@
-.carousel{
-    // position: relative;
-    margin-top: 130px;
-    position:inherit;
-}
-.carousel-inner{
-    position: inherit;
-}
-.carousel-item{
-    position: inherit;
-    transition: 0.3s;
-}
-.carousel-indicators{
-    bottom: 25%;
-}
-.carousel-control-prev, .carousel-control-next {
-    // bottom: 30px;
-    width: 2%;
-}
+.carousel-container {
+    width: 100%; /* Adjust the width as needed */
+    overflow: hidden;
+  }
+  
+  .carousel {
+    display: flex;
+    height: 300px;
+    animation: slide 20s linear infinite; /* Adjust the duration as needed */
+  }
+  
+  .carousel-images {
+    flex: 0 0 100%;
+  }
+  
+  .carousel-images img {
+    width: 100%;
+    height: auto;
+  }
+  
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    10% {
+      transform: translateX(0);
+    }
+    20% {
+      transform: translateX(-100%);
+    }
+    30% {
+      transform: translateX(-100%);
+    }
+    40% {
+      transform: translateX(-200%);
+    }
+    50% {
+      transform: translateX(-200%);
+    }
+    60% {
+      transform: translateX(-300%);
+    }
+    70% {
+      transform: translateX(-300%);
+    }
+    80% {
+      transform: translateX(-300%);
+    }
+    90% {
+      transform: translateX(-300%);
+    }
+    100% {
+      transform: translateX(-300%);
+    }
+  
+  
+  }
+  

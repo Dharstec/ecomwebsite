@@ -7,40 +7,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarouselComponent implements OnInit {
 
-
-  // imageObject = [
-  //   {
-  //     image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/5.jpg',
-  //     thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/5.jpg',
-  //     title: 'Hummingbirds are amazing creatures'
-  //   }, {
-  //     image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/9.jpg',
-  //     thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/9.jpg'
-  //   }, {
-  //     image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/4.jpg',
-  //     thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/4.jpg',
-  //     title: 'Example with title.'
-  //   }, {
-  //     image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/7.jpg',
-  //     thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/7.jpg',
-  //     title: 'Hummingbirds are amazing creatures'
-  //   }, {
-  //     image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/1.jpg',
-  //     thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/1.jpg'
-  //   }, {
-  //     image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/2.jpg',
-  //     thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/2.jpg',
-  //     title: 'Example two with title.'
-  //   }];
-  constructor() { }
+  images: string[] = [
+    'assets/1.png',
+    'assets/2.png',
+    'assets/3.png',
+    'assets/product_up.png'
+  ];
+  currentIndex: number = 0;
+  private intervalId: any; // Store the interval ID
 
   ngOnInit(): void {
+    // Start the automatic slide transition with a 3-second interval (adjust as needed)
+    this.intervalId = setInterval(() => this.nextSlide(), 1000);
   }
 
- 
+  ngOnDestroy(): void {
+    // Clear the interval when the component is destroyed to prevent memory leaks
+    clearInterval(this.intervalId);
+  }
 
-  // imageClickHandler(e) {
-  //   console.log('image click', e);
-  // }
+  prevSlide() {
+    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+  }
+
+  nextSlide() {
+    this.currentIndex = (this.currentIndex + 1) % this.images.length;
+  }
+
+  
 
 }

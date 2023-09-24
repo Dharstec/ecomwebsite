@@ -1,43 +1,43 @@
 <div class="footer-container">
     <div class="footer">
         <div class="footer-links d-flex">
-            <div class="foot-header col-3">
-                <label class="mb-12">Quick Links</label>
-                <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Support</label>
-                <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Store Locator</label>
-                <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">International Shipping</label>
-                <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Careers</label>
-                <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Jewellery care</label>
-                <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Blogs</label>
-                <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Reviews</label>
-                <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Privacy policy</label>
-                <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Shipping & Returns</label>
-                <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">International Shipping FAQs</label>
-                <label class="text"><img class="mr-12" src="assets/right-arrow.svg" alt="">Terms of service</label>
+            <ul class="foot-header col-3">
+                <span class="mb-12"  style="font-weight: 600;">Quick Links</span>
+                <li class="text">Support</li>
+                <li class="text">Store Locator</li>
+                <li class="text">International Shipping</li>
+                <li class="text">Careers</li>
+                <li class="text">Jewellery care</li>
+                <li class="text">Blogs</li>
+                <li class="text">Reviews</li>
+                <li class="text">Privacy policy</li>
+                <li class="text">Shipping & Returns</li>
+                <li class="text">International Shipping FAQs</li>
+                <li class="text">Terms of service</li>
   
-            </div>
+            </ul>
             <div class="foot-header col-6">
-                <label class="mb-12">Newsletter</label>
+                <span class="mb-12"  style="font-weight: 600;">Newsletter</span>
                 <div class="flex-custom">
-                    <input [(ngModel)]="emailId" placeholder="Email Address" autocomplete="off" class="form-control" type="text" id="email-id">  
-                    <button class="btn btn-secondary">Subscribe</button>
+                    <input [(ngModel)]="emailId" [ngModelOptions]="{standalone: true}" placeholder="Email Address" autocomplete="off" class="form-control" type="text" id="email-id">  
+                    &nbsp;<button class="btn btn-secondary" style="background-color:#3e4c75;color: white;font-weight: 500;font-size: small">Subscribe</button>
                 </div>
             </div>
             <div class="foot-header col-3">
-                <label class="mb-12">Contact Us</label>
-                <div class="text">
-                    <label>  BIS : HM/C - 6290031216</label>
-                    <label>For any suggestions, queries or complaints please contact us at :</label>
-                    <label>-  care@jewel.co</label>
-                    <label>-  91******** (8 AM to 6:30 PM)</label>
+                <span class="mb-12" style="font-weight: 600;">Contact Us</span>
+                <div >
+                    <p>  BIS : HM/C - 6290031216</p>
+                    <p>For any suggestions, queries or complaints please contact us at :</p>
+                    <p> care@jewel.co</p>
+                    <p> 91******** (8 AM to 6:30 PM)</p>
                 </div>
             </div>
         </div>
       </div> 
       <div class="btm-footer">
         <div class="btm-footer-links">
-            <div class="d-flex">
-                <label>Copyright 2023 AURA. All rights reserved.</label>
+            <div class="d-flex" style="display: flex;justify-content: center;font-weight: 500">
+                <label>Copyright 2023 Bocxy. All rights reserved.</label>
             </div>
         </div>
       </div> 

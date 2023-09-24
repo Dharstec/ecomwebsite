@@ -34,7 +34,6 @@ import { YourAddressPageComponent } from './your-address-page/your-address-page.
 import { RemoveAddressPopupComponent } from './your-address-page/remove-address-popup/remove-address-popup.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { LogoutPopupComponent } from './components/logout-popup/logout-popup.component';
-import { MatCarouselModule } from '@ngbmodule/material-carousel';
 
 @NgModule({
   declarations: [
@@ -66,14 +65,12 @@ import { MatCarouselModule } from '@ngbmodule/material-carousel';
     HttpClientModule,
     CommonModule,
     ClipboardModule,
-    // NgSelectModule,
     FormsModule,
     ReactiveFormsModule,
     AngularMaterialModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
     NgxSpinnerModule,
-
   ],
   providers: [
     TitleCasePipe,

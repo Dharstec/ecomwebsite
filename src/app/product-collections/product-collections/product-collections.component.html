@@ -1,47 +1,29 @@
 <div class="main-content">
-  <!-- <ngb-carousel>
-    <ng-template ngbSlide>
-      <div class="collection_images">
-        <img class="img-container" src="assets/product_up.png" alt="">
-      </div>
-    </ng-template>
-    <ng-template ngbSlide>
-      <div class="collection_images">
-        <img class="img-container" src="assets/product_up.png" alt="">
-      </div>
-    </ng-template>
-    <ng-template ngbSlide>
-      <div class="collection_images">
-        <img class="img-container" src="assets/product_up.png" alt="">
-      </div>
-    </ng-template>
-  </ngb-carousel> -->
-   
+ <!-- <div  class="collection_images">
+  <app-carousel></app-carousel>
+ </div> -->
+ <div class="collection_images">
+  <img class="img-container" src="assets/product_up.png" alt="">
+</div>
   <div class="filter-row mb-12" #stickyMenu [class.sticky] = "sticky">
     <div  [formGroup]="filterForm" class="w-100 btm-line">
       <div class=" flex-custom">
-          <!-- Category filter list -->
-          <div>
             <div class="filter-id mr-12 mb-12 drop" (click)="subMenuOpen('category')"  id="category">Category</div>
             <div class="dropdown-content" [class.sticky-dropdown] = "sticky">
-              <!-- <mat-select multiple formControlName="category" (selectionChange)="checkdynamicData()">
-                <mat-option *ngFor="let row of categoryDropdownList" [value]="row" >{{row.field_name}}</mat-option>
-              </mat-select> -->
               <ng-container *ngFor="let row of categoryDropdownList; let i= index">
                 <div class="mb-1" *ngIf="row.count!=0">
-                <input type="checkbox" [(ngModel)]="selectedCategory" id="category{{i}}" (change)="getFilterData($event,row,'category')"  class="" autocomplete="off" [checked]="row.checked">
-                <label class="ml-3" for="category{{i}}">{{row?.field_name}}</label>
+                <input type="checkbox" [(ngModel)]="selectedCategory" id="category{{i}}" (change)="getFilterData($event,row,'category')"   autocomplete="off" [checked]="row.checked">
+                <label class="ml-3 " for="category{{i}}">{{row?.field_name}}</label>
                 </div>
               </ng-container>
             </div>
-          </div>
                 <!-- stone filter list -->
           <div>
             <div class="filter-id mr-12 mb-12 drop" (click)="subMenuOpen('stone')" id="stone">Brand</div>
             <div class="dropdown-content" [class.sticky-dropdown] = "sticky">
               <ng-container *ngFor="let row of stoneDropdownList; let i= index">
                 <div class="mb-1" *ngIf="row.count!=0">
-                  <input type="checkbox" [(ngModel)]="selectedStone" id="stone{{i}}" (change)="getFilterData($event,row,'stone')" class="" autocomplete="off" [checked]="row.checked">
+                  <input type="checkbox"  [(ngModel)]="selectedStone"  id="stone{{i}}" (change)="getFilterData($event,row,'stone')" class="" autocomplete="off" [checked]="row.checked">
                   <label class="ml-3" for="stone{{i}}">{{row?.field_name}}</label>
                 </div>
               </ng-container>
@@ -52,7 +34,7 @@
             <div class="filter-id mr-12 mb-12 drop" (click)="subMenuOpen('price')"  id="price">Price</div>
             <div class="dropdown-content" [class.sticky-dropdown] = "sticky">
               <div class="flex-custom mb-3">
-                <input type="text" formControlName="minPrice" [(ngModel)]="minValue"  class="priceRange" autocomplete="off" (keyUp)="changePrice($event,'min')"> -
+                <input type="text" matInput  formControlName="minPrice" [(ngModel)]="minValue"  class="priceRange" autocomplete="off" (keyUp)="changePrice($event,'min')"> -
                 <input type="text" formControlName="maxPrice" [(ngModel)]="maxValue" class="priceRange" autocomplete="off" (keyUp)="changePrice($event,'max')">
               </div>
               <!-- <ngx-slider [options]="slideOptions" (userChange)="filterByPrice($event,'price')" [(value)]="minValue" [(highValue)]="maxValue"></ngx-slider> -->
@@ -88,7 +70,7 @@
             <div class="dropdown-content" [class.sticky-dropdown] = "sticky">
               <ng-container *ngFor="let row of forDropdownList; let i= index">
                 <div class="mb-1">
-                  <input type="checkbox" [(ngModel)]="selectedFor" id="for{{i}}"  (change)="getFilterData($event,row,'for')" class="" autocomplete="off" [checked]="row.checked">
+                  <input type="checkbox" matInput [(ngModel)]="selectedFor" id="for{{i}}"  (change)="getFilterData($event,row,'for')" autocomplete="off" [checked]="row.checked">
                   <label class="ml-3" for="for{{i}}">{{row?.field_name}}</label>
                 </div>
               </ng-container>
@@ -106,11 +88,11 @@
           </div>
       </div>
       <div class="flex-custom mb-12" *ngIf="selectedFilterList && selectedFilterList.length">
-        <button class="btn btn-secondary mr-12" (click)="clearAllFilter()" *ngIf="selectedFilterList.length!=1" >
+        <button class="btn btn-secondary mr-12 red" (click)="clearAllFilter()" *ngIf="selectedFilterList.length!=1" >
           Clear All
         </button>
         <div class="globo-selected" *ngFor="let row of selectedFilterList" (click)="getFilterData('',row,'remove')">
-            {{row.item_id}}<img class="d-arrow mt-1" src="/assets/close.svg" alt="">
+            {{row.item_id}}<img class="d-arrow" src="/assets/close.svg" alt="">
         </div>
       </div>
     </div>
@@ -119,6 +101,7 @@
     <div class="content-details">
       <div class="accordion mb-4  ml-auto mr-auto" *ngFor="let row of productList;let i=index">
           <div class="flex-grid cursor-pointer" (click)="routeToDetails(row)">
+            <div class="badge">{{row.discountedPercentage}} %</div>
              <img class="accordion_img" [src]="row?.productImages[0]" alt="">
              <label class="product-name mt-1">{{row?.productName | titlecase}}</label>
              <div class="product-price">
@@ -127,10 +110,28 @@
              </div>
           </div>
        </div>
+       <!-- <div class="product-card" *ngFor="let row of productList;let i=index">
+        <div class="badge">Hot</div>
+        <div class="product-tumb">
+          <img [src]="row?.productImages[0]" alt="">
+        </div>
+        <div class="product-details">
+          <span class="product-catagory">Women,bag</span>
+          <h4><a href="">Women leather bag</a></h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
+          <div class="product-bottom-details">
+            <div class="product-price"><small>$96.00</small>$230.99</div>
+            <div class="product-links">
+              <a href=""><i class="fa fa-heart"></i></a>
+              <a href=""><i class="fa fa-shopping-cart"></i></a>
+            </div>
+          </div>
+        </div>
+      </div> -->
        <div *ngIf="!productList.length">
               <span>No product found.</span>
        </div>
     </div>
   
 </div>
-<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-atom" [fullScreen]="true"></ngx-spinner>
+<!-- <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-atom" [fullScreen]="true"></ngx-spinner> -->

@@ -10,37 +10,37 @@
     <div class="flex-custom">
       <nav class="nav-bar nav-font btm-line">
         <img class="logo mr-12 ml-12" routerLink="/jewel/home" (click)="activeNavBar=''"  src="assets/bocxy_name_logo_.png" alt="">
-        <span class="nav-content dropdown ml-auto" id="all">All<img class="d-arrow" src="assets/down-arrow.svg" alt="">
+        <span class="nav-content dropdown ml-auto" id="all" style="position: relative;bottom: 4px;">All&nbsp;<mat-icon style="position: relative;top: 7px;color:#3e4c75;">arrow_drop_down</mat-icon>
            <div class="dropdown-content p-4" style="width: 670px;text-wrap: nowrap;">
             <div class="flex-custom">
               <div class="mr-3">
                 <div *ngFor="let row of categoryDropdownList;let i= index">
-                  <a *ngIf="i==0" class="font-weight-bold p-1" href="#">Shop By Category</a>
+                  <span *ngIf="i==0" class="font-weight-bold p-1" href="#">Shop By Category</span>
                   <a class="p-1"  (click)="getSelectedCollection(row)">{{row.item_text}}</a>
                   <a *ngIf="i==categoryDropdownList.length-1" class="p-1" routerLink="/jewel/product-collections">All</a>
                 </div>
               </div>
               <div class="mr-3">
                 <div *ngFor="let row of colourDropdownList;let i= index">
-                  <a *ngIf="i==0" class="font-weight-bold p-1" href="#">Shop By Formulation</a>
+                  <span *ngIf="i==0" class="font-weight-bold p-1" href="#">Shop By Formulation</span>
                   <a class="p-1" href="#" (click)="getSelectedCollection(row)">{{row.item_text}}</a>
                 </div>
               </div>
               <div class="mr-3">
                 <div *ngFor="let row of stoneDropdownList;let i= index">
-                  <a *ngIf="i==0" class="font-weight-bold p-1" href="#">Shop By Brand</a>
+                  <span *ngIf="i==0" class="font-weight-bold p-1" href="#">Shop By Brand</span>
                   <a class="p-1" href="#" (click)="getSelectedCollection(row)">{{row.item_text}}</a>
                 </div>
               </div>
               <div class="mr-3">
                 <div *ngFor="let row of styleDropdownList;let i= index">
-                  <a *ngIf="i==0" class="font-weight-bold p-1"  href="#">Shop By Style</a>
+                  <span *ngIf="i==0" class="font-weight-bold p-1"  href="#">Shop By Style</span>
                   <a class="p-1" href="#" (click)="getSelectedCollection(row)">{{row.item_text}}</a>
                 </div>
               </div>
               <div class="mr-3">
                 <div *ngFor="let row of forDropdownList;let i= index">
-                  <a *ngIf="i==0" class="font-weight-bold p-1" href="#">Shop By For</a>
+                  <span *ngIf="i==0" class="font-weight-bold p-1" href="#">Shop By For</span>
                   <a class="p-1" href="#" (click)="getSelectedCollection(row)">{{row.item_text}}</a>
                 </div>
               </div>
@@ -51,7 +51,7 @@
         <span class="nav-content" (click)="selectedNavBar('collections','/jewel/product-collections')" [class.active]="activeNavBar=='collections'" id="collections">Collections</span>
         <span class="nav-content" (click)="selectedNavBar('personalised','/jewel/product-personalised')" [class.active]="activeNavBar=='personalised'" id="personalised">Personalised</span>
         <span class="nav-content" (click)="selectedNavBar('arrivals','/jewel/product-new-arrivals')" [class.active]="activeNavBar=='arrivals'" id="arrivals">New Arrivals</span>
-        <span class="nav-content dropdown mr-auto" >More<img class="d-arrow" src="assets/down-arrow.svg" alt="">
+        <span class="nav-content dropdown mr-auto" style="position: relative;bottom: 4px;">More&nbsp;<mat-icon style="position: relative;top: 7px;color:#3e4c75;">arrow_drop_down</mat-icon>
           <div class="dropdown-content">
             <a href="#">Track Order</a>
             <a href="#">Store Locator</a>

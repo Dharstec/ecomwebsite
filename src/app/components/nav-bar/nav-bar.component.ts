@@ -7,6 +7,7 @@ import { ChangeDetectorRef } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { LogoutPopupComponent } from '../logout-popup/logout-popup.component';
 import { MatDialog } from '@angular/material/dialog';
+import { TitleCasePipe } from '@angular/common';
 
 
 @Component({
@@ -36,7 +37,7 @@ export class NavBarComponent implements OnInit {
   counter:any = 0;
   
   constructor(private api:ApiService,private router:Router,private util:UtilService,private changeDetectorRefs: ChangeDetectorRef,private zone:NgZone,
-    private authService:AuthService, public dialog:MatDialog
+    private authService:AuthService, public dialog:MatDialog,private titleCasePipe: TitleCasePipe
     ) {
       window.scrollTo(0, 0);
      }
@@ -117,7 +118,7 @@ export class NavBarComponent implements OnInit {
   async change() {
     this.counter =this.counter==undefined ? 0 :   this.counter
     var elem = document.getElementById("couponText");
-    elem.innerHTML = this.allcouponsList[this.counter].description;
+    elem.innerHTML = `&star;` +' ' +this.titleCasePipe.transform(this.allcouponsList[this.counter].description) +' '+ `&star;` ;
     console.log(elem.innerHTML);
     
     this.counter++;
